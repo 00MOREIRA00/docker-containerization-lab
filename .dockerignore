@@ -1,0 +1,50 @@
+# Bytecode do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtualenvs locais
+venv/
+.venv/
+env/
+ENV/
+
+# Configurações do sistema
+.DS_Store
+Thumbs.db
+
+# Pastas de controle
+.git
+.gitignore
+.gitattributes
+
+# Docker
+docker-compose.yml
+.dockerignore
+Dockerfile
+
+# Logs e temporários
+*.log
+*.out
+*.tmp
+*.swp
+*.swo
+
+# Testes / cache de dependências
+.coverage
+htmlcov/
+.tox/
+pytest_cache/
+.mypy_cache/
+.cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Arquivos de pacotes
+*.egg
+*.egg-info
+dist/
+build/
