@@ -4,7 +4,7 @@ from uuid import UUID, uuid4
 from sqlalchemy import DateTime, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
-from database import Base
+from provider.database import Base
 
 
 class Canal(Base):
@@ -24,5 +24,5 @@ class Canal(Base):
 
     criado_em: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=datetime.now(timezone.utc),
+        default=lambda: datetime.now(timezone.utc),
     )

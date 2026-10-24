@@ -18,14 +18,14 @@
 ## Etapa 3 — Banco de dados (PostgreSQL)
 
 - [x] Adicionar SQLAlchemy e driver PostgreSQL com `uv add`
-- [ ] Criar os models e a conexão com o banco
-- [ ] Testar localmente com PostgreSQL rodando na máquina
+- [x] Criar os models e a conexão com o banco
+- [x] Testar localmente com PostgreSQL rodando na máquina
 
 ## Etapa 4 — Docker Compose (ambiente local)
 
-- [ ] Criar `docker-compose.yml` com a API + PostgreSQL
-- [ ] Configurar variáveis de ambiente via `.env`
-- [ ] Testar o `docker compose up` do zero
+- [x] Criar `docker-compose.yml` com PostgreSQL
+- [x] Configurar variáveis de ambiente via `.env`
+- [x] Testar o `docker compose up` do zero
 - [ ] Documentar em `docs/tutoriais/api/03-docker-compose.md`
 
 ## Etapa 5 — Múltiplos ambientes

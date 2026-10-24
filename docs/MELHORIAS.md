@@ -32,3 +32,6 @@
   - "paa contruir" → "para construir"
   - "desceve" → "descreve"
 - **Correção:** Corrigir os dois trechos.
+
+## Ideias 
+- Colocar migrate e api no docker compose
