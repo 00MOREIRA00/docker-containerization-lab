@@ -26,7 +26,7 @@
 - [x] Criar `docker-compose.yml` com PostgreSQL
 - [x] Configurar variáveis de ambiente via `.env`
 - [x] Testar o `docker compose up` do zero
-- [ ] Documentar em `docs/tutoriais/api/03-docker-compose.md`
+- [x] Documentar em `docs/tutoriais/api/03-docker-compose.md`
 
 ## Etapa 5 — Múltiplos ambientes
 
