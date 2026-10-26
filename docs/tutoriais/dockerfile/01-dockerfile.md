@@ -135,7 +135,8 @@ Use o método `POST` na mesma URL. Em **Body → raw → JSON**, informe:
 
 Clique em **Send**. A resposta esperada é **201 Created**, com os dados enviados e os campos `id` e `criado_em`. Repita o `GET` para consultar o canal criado.
 
-Os canais ficam em memória e são perdidos quando a aplicação reinicia.
+Os canais são persistidos no PostgreSQL. Para preparar o banco, aplique as
+migrations com Alembic conforme a documentação de [banco de dados](../api/03%20-%20bd.md).
 
 A documentação interativa também está disponível em [http://localhost:8000/docs](http://localhost:8000/docs).
 

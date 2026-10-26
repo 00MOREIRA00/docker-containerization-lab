@@ -6,7 +6,7 @@ Com o PostgreSQL iniciado pelo Compose e as migrations aplicadas, execute
 nesta pasta:
 
 ```powershell
-uv run --env-file ../.env python seed.py
+uv run --env-file ../.env python -m scripts.seed_dev
 ```
 
 O seed adiciona seis canais fictícios, com status ativo e inativo e ambientes

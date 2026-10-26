@@ -27,7 +27,7 @@
 - **Correção:** Adicionar descrição do propósito do repositório, como ele está organizado e como navegar pelo conteúdo.
 
 ### 5. Typos na documentação
-- **Arquivo:** `docs/01-geral.md`
+- **Arquivo:** `docs/tutoriais/dockerfile/00-fundamentos.md`
 - **Problema:** Dois erros de digitação no texto introdutório.
   - "paa contruir" → "para construir"
   - "desceve" → "descreve"

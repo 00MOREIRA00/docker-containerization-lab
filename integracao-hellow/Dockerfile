@@ -29,7 +29,7 @@ RUN useradd --create-home --uid 10001 appuser
 
 COPY --from=builder /app/.venv /app/.venv
 COPY --from=builder /app/pyproject.toml /app/uv.lock /app/alembic.ini /app/
-COPY --from=builder /app/main.py /app/seed.py /app/
+COPY --from=builder /app/main.py /app/
 COPY --from=builder /app/migrations /app/migrations
 COPY --from=builder /app/models /app/models
 COPY --from=builder /app/provider /app/provider

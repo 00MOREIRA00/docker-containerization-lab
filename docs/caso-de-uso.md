@@ -69,3 +69,8 @@ O catálogo de canais muda conforme o ambiente:
 - Em **prod**, os canais são os fluxos reais entre sistemas da empresa
 
 A aplicação é a mesma. A imagem Docker é a mesma. O que muda é o banco de dados e as configurações de cada ambiente — exatamente o que esse cheatsheet vai demonstrar.
+
+Para complementar este caso de uso, consulte:
+
+- [Modelo de dados](modelo-de-dados.md), para a estrutura persistida da entidade `Canal`.
+- [Decisões técnicas](decisoes.md), para os motivos das principais escolhas da implementação.

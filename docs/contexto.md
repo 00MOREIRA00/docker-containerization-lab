@@ -52,7 +52,7 @@ Ao longo desse repositório, vamos pegar o **Integração Hello** e resolver, pa
 
 | Etapa | O que resolve |
 |-------|---------------|
-| [Introdução ao Dockerfile](./01-geral.md) | Como descrever o ambiente da aplicação |
+| [Fundamentos do Dockerfile](./tutoriais/dockerfile/00-fundamentos.md) | Como descrever o ambiente da aplicação |
 | Build e Run | Como empacotar e rodar localmente |
 | Registry e Push | Como compartilhar a imagem com o time |
 | Múltiplos ambientes | Como lidar com dev, homolog e produção |

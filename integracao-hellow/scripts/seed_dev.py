@@ -1,4 +1,4 @@
-"""Popula canais de exemplo sem alterar registros existentes."""
+"""Popula o banco local com canais de exemplo."""
 
 from uuid import NAMESPACE_URL, uuid5
 
@@ -21,7 +21,7 @@ CANAIS = (
 
 
 def popular_canais(session: Session) -> tuple[int, int]:
-    """Insere exemplos ausentes; a transação é controlada pelo chamador."""
+    """Insere exemplos ausentes sem alterar registros existentes."""
     exemplos = []
     for chave, nome, origem, destino, status, ambiente in CANAIS:
         dados = CanalCreate(
@@ -34,10 +34,10 @@ def popular_canais(session: Session) -> tuple[int, int]:
         canal_id = uuid5(NAMESPACE_URL, f"dockerfile-trainer/seed/canais/{chave}")
         exemplos.append((canal_id, dados))
 
-    existentes = set(session.scalars(select(Canal.id).where(
-        Canal.id.in_([canal_id for canal_id, _ in exemplos])
-    )))
+    ids = [canal_id for canal_id, _ in exemplos]
+    existentes = set(session.scalars(select(Canal.id).where(Canal.id.in_(ids))))
     inseridos = 0
+
     for canal_id, dados in exemplos:
         if canal_id not in existentes:
             session.add(Canal(id=canal_id, **dados.model_dump(mode="json")))
@@ -49,6 +49,7 @@ def popular_canais(session: Session) -> tuple[int, int]:
 def main() -> None:
     with SessionLocal.begin() as session:
         inseridos, existentes = popular_canais(session)
+
     print(f"Seed concluído: {inseridos} canais inseridos, {existentes} já existentes.")
 
 

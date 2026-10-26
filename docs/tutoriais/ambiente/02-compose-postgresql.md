@@ -176,8 +176,9 @@ uv run --env-file ../.env alembic current
 ```
 
 A migration inicial cria `canais`, e o Alembic registra a revisão na tabela
-`alembic_version`. As rotas atuais ainda usam uma lista em memória; a conexão
-disponível e a criação da tabela não tornam o CRUD persistente automaticamente.
+`alembic_version`. As rotas utilizam services e persistem os canais no
+PostgreSQL; a conexão disponível, por si só, não substitui a aplicação das
+migrations.
 
 ## Encerrar o ambiente
 

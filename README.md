@@ -100,3 +100,12 @@ Os arquivos `.env.dev`, `.env.staging` e `.env.prod` sao ignorados pelo Git.
 Em uma empresa, staging e producao normalmente utilizariam uma plataforma de
 deploy, banco gerenciado, secrets manager, observabilidade e alta
 disponibilidade.
+
+## Documentação
+
+Consulte o [índice da documentação](docs/README.md). Os tutoriais estão
+organizados em três trilhas:
+
+- [API](docs/tutoriais/api/README.md)
+- [Ambiente](docs/tutoriais/ambiente/README.md)
+- [Dockerfile](docs/tutoriais/dockerfile/README.md)
