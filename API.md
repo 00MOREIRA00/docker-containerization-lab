@@ -5,7 +5,7 @@
 A API já possui:
 
 - CRUD de canais.
-- Versionamento inicial em `/canais/v1`.
+- Versionamento inicial em `/relacionamento/v1`.
 - Migrations com Alembic.
 - Persistência em PostgreSQL.
 - Camada de services para concentrar a lógica.
@@ -38,9 +38,9 @@ TimeoutError      -> 504 Gateway Timeout
 A listagem atualmente retorna todos os canais. Podemos adicionar:
 
 ```http
-GET /canais/v1/?page=1&limit=20
-GET /canais/v1/?status=ativo
-GET /canais/v1/?ambiente=prod
+GET /relacionamento/v1/canais?page=1&limit=20
+GET /relacionamento/v1/canais?status=ativo
+GET /relacionamento/v1/canais?ambiente=prod
 ```
 
 ### 4. Regras de negócio

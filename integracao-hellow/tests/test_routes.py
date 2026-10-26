@@ -21,7 +21,9 @@ def http_scope(path: str, method: str) -> dict:
 class RouteMatchingTests(unittest.TestCase):
     def test_caminho_nao_uuid_nao_corresponde_a_rota_de_canal(self):
         matches = [
-            route.matches(http_scope("/canais/v1/consumidor", "POST"))[0]
+            route.matches(
+                http_scope("/relacionamento/v1/consumidor", "POST")
+            )[0]
             for route in router.routes
         ]
 
@@ -31,7 +33,7 @@ class RouteMatchingTests(unittest.TestCase):
         matches = [
             (route.path, route.matches(
                 http_scope(
-                    "/canais/v1/00000000-0000-0000-0000-000000000000",
+                    "/relacionamento/v1/canais/00000000-0000-0000-0000-000000000000",
                     "GET",
                 )
             )[0])
@@ -39,7 +41,7 @@ class RouteMatchingTests(unittest.TestCase):
         ]
 
         self.assertIn(
-            ("/canais/v1/{canal_id:uuid}", Match.FULL),
+            ("/relacionamento/v1/canais/{canal_id:uuid}", Match.FULL),
             matches,
         )
 

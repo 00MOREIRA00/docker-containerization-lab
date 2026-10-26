@@ -32,8 +32,8 @@ variaveis. O Python nao carrega `.env` automaticamente; os comandos acima
 fazem isso pelo uv.
 
 O esquema e gerenciado pelo Alembic, sem scripts `initdb` nem `create_all()`.
-A migration inicial cria `canais`. As rotas atuais ainda usam uma lista em
-memoria e nao persistem os dados nessa tabela.
+A migration inicial cria `canais`, e as rotas de relacionamento persistem os
+dados nessa tabela.
 
 ## Criar e aplicar migrations
 

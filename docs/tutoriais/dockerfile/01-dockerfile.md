@@ -114,7 +114,7 @@ O `--rm` remove automaticamente o container quando ele para. A imagem continua d
 Crie uma requisição com o método `GET` e a URL:
 
 ```text
-http://localhost:8000/canais/v1/
+http://localhost:8000/relacionamento/v1/canais
 ```
 
 Clique em **Send**. Sem canais cadastrados, a resposta esperada é **200 OK** com o corpo `[]`.

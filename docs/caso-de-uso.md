@@ -52,11 +52,11 @@ Cada Canal representa uma integração entre um sistema de origem e um sistema d
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
-| `POST` | `/canais` | Registrar um novo canal |
-| `GET` | `/canais` | Listar todos os canais |
-| `GET` | `/canais/{id}` | Detalhar um canal |
-| `PUT` | `/canais/{id}` | Atualizar dados ou status |
-| `DELETE` | `/canais/{id}` | Remover um canal |
+| `POST` | `/relacionamento/v1/canais` | Registrar um novo canal |
+| `GET` | `/relacionamento/v1/canais` | Listar todos os canais |
+| `GET` | `/relacionamento/v1/canais/{id}` | Detalhar um canal |
+| `PUT` | `/relacionamento/v1/canais/{id}` | Atualizar dados ou status |
+| `DELETE` | `/relacionamento/v1/canais/{id}` | Remover um canal |
 
 ---
 
