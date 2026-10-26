@@ -59,3 +59,44 @@ populado fora do Alembic precisa ser reconciliado antes da primeira execucao.
 Na raiz, `docker compose down` encerra o banco e preserva os dados.
 `docker compose down -v` tambem remove o volume e seus dados. Alterar usuario,
 senha ou nome do banco no `.env` nao reconfigura um volume ja inicializado.
+
+## Ambientes Docker
+
+O repositorio possui um Compose separado para cada ambiente:
+
+```text
+docker-compose.dev.yml
+docker-compose.staging.yml
+docker-compose.prod.yml
+```
+
+Essa separacao serve para demonstrar como configuracoes, portas, redes e
+volumes podem ser isolados entre desenvolvimento, staging e producao.
+
+O ambiente `dev` e destinado ao desenvolvimento local, com reload da API e
+portas acessiveis no host. Os ambientes `staging` e `prod` sao simulacoes
+locais para aprendizado e validacao da separacao entre ambientes; nao devem
+ser tratados como uma infraestrutura corporativa de homologacao ou producao.
+
+Cada ambiente usa seu proprio arquivo de variaveis. Os arquivos reais nao sao
+versionados; crie-os a partir dos exemplos:
+
+```powershell
+Copy-Item .env.dev.example .env.dev
+Copy-Item .env.staging.example .env.staging
+Copy-Item .env.prod.example .env.prod
+```
+
+Depois, ajuste as senhas nos arquivos reais e inicie o ambiente desejado:
+
+```powershell
+docker compose -f docker-compose.dev.yml up --build -d
+docker compose -f docker-compose.staging.yml up --build -d
+docker compose -f docker-compose.prod.yml up --build -d
+```
+
+Os arquivos `.env.dev`, `.env.staging` e `.env.prod` sao ignorados pelo Git.
+
+Em uma empresa, staging e producao normalmente utilizariam uma plataforma de
+deploy, banco gerenciado, secrets manager, observabilidade e alta
+disponibilidade.

@@ -44,6 +44,20 @@ class HandlerTests(unittest.TestCase):
             {"message": "Método não permitido"},
         )
 
+    def test_traduz_erro_405_automatico_do_starlette(self):
+        response = asyncio.run(
+            starlette_http_exception_handler(
+                None,
+                StarletteHTTPException(status_code=405, detail="Method Not Allowed"),
+            )
+        )
+
+        self.assertEqual(response.status_code, 405)
+        self.assertEqual(
+            response_json(response),
+            {"message": "Método não permitido"},
+        )
+
     def test_usa_mensagem_padrao_quando_erro_http_nao_tem_detalhe(self):
         response = asyncio.run(
             starlette_http_exception_handler(

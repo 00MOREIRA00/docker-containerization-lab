@@ -10,6 +10,11 @@ from exceptions.exceptions import HttpAppError
 
 logger = logging.getLogger(__name__)
 
+_STARLETTE_DEFAULT_MESSAGES = {
+    404: "Rota não encontrada",
+    405: "Método não permitido",
+}
+
 
 def _message(detail: Any, fallback: str) -> str:
     """Retorna uma mensagem segura e consistente para o consumidor da API."""
@@ -34,9 +39,20 @@ async def starlette_http_exception_handler(
     exc: StarletteHTTPException,
 ) -> JSONResponse:
     """Trata erros HTTP gerados pelo FastAPI ou pelo Starlette."""
+    default_detail = {
+        404: "Not Found",
+        405: "Method Not Allowed",
+    }.get(exc.status_code)
+    detail = (
+        _STARLETTE_DEFAULT_MESSAGES[exc.status_code]
+        if exc.status_code in _STARLETTE_DEFAULT_MESSAGES
+        and exc.detail == default_detail
+        else _message(exc.detail, "Erro HTTP")
+    )
+
     return JSONResponse(
         status_code=exc.status_code,
-        content={"message": _message(exc.detail, "Erro HTTP")},
+        content={"message": detail},
     )
 
 

@@ -30,31 +30,14 @@
 
 ## Etapa 5 — Múltiplos ambientes
 
-- [ ] Criar `docker-compose.dev.yml`, `docker-compose.staging.yml`, `docker-compose.prod.yml`
-- [ ] Usar arquivos de config separados por ambiente (`.env.dev`, `.env.staging`, `.env.prod`)
-- [ ] Documentar as diferenças entre os ambientes
-- [ ] Documentar em `docs/tutoriais/api/04-multiplos-ambientes.md`
+- [x] Criar `docker-compose.dev.yml`, `docker-compose.staging.yml`, `docker-compose.prod.yml`
+- [x] Usar arquivos de config separados por ambiente (`.env.dev`, `.env.staging`, `.env.prod`)
+- [x] Documentar as diferenças entre os ambientes
+- [x] Documentar em `docs/tutoriais/api/04-multiplos-ambientes.md`
 
 ## Etapa 6 — Multi-stage build
 
-- [ ] Reescrever o `Dockerfile` com multi-stage (build stage + runtime stage)
-- [ ] Comparar tamanho da imagem antes e depois
-- [ ] Documentar em `docs/tutoriais/api/05-multistage.md`
+- [x] Reescrever o `Dockerfile` com multi-stage (build stage + runtime stage)
+- [x] Comparar tamanho da imagem antes e depois
+- [x] Documentar em `docs/tutoriais/api/05-multistage.md`
 
-## Etapa 7 — Registry e Push
-
-- [ ] Fazer o push da imagem para o Docker Hub (ou registry escolhido)
-- [ ] Documentar o fluxo de tag + push
-- [ ] Documentar em `docs/tutoriais/api/06-registry.md`
-
-## Etapa 8 — Boas práticas e segurança
-
-- [ ] Revisar o `Dockerfile` final contra as boas práticas
-- [ ] Checar: usuário não-root, `.dockerignore`, camadas desnecessárias, segredos expostos
-- [ ] Documentar em `docs/tutoriais/api/07-boas-praticas.md`
-
-## Etapa 9 — Documentação geral
-
-- [ ] Corrigir typos em `docs/01-geral.md` ("paa contruir", "desceve")
-- [ ] Escrever o `README.md` do repositório com visão geral e como rodar
-- [ ] Revisar todos os arquivos de `docs/` para consistência

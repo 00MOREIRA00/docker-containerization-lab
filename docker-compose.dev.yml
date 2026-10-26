@@ -1,0 +1,48 @@
+name: dockerfile-trainer-dev
+
+services:
+  api:
+    build:
+      context: ./integracao-hellow
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+    env_file:
+      - .env.dev
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+    ports:
+      - "127.0.0.1:8001:8001"
+    volumes:
+      - ./integracao-hellow:/app
+      - /app/.venv
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - pauta-dev
+
+  postgres:
+    image: postgres:18
+    env_file:
+      - .env.dev
+    environment:
+      POSTGRES_HOST: postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata_dev:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - pauta-dev
+
+volumes:
+  pgdata_dev:
+
+networks:
+  pauta-dev:
+    driver: bridge

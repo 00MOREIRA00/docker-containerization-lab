@@ -1,0 +1,44 @@
+name: dockerfile-trainer-staging
+
+services:
+  api:
+    build:
+      context: ./integracao-hellow
+    env_file:
+      - .env.staging
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+    ports:
+      - "127.0.0.1:8002:8001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - pauta-staging
+
+  postgres:
+    image: postgres:18
+    env_file:
+      - .env.staging
+    environment:
+      POSTGRES_HOST: postgres
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgdata_staging:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - pauta-staging
+
+volumes:
+  pgdata_staging:
+
+networks:
+  pauta-staging:
+    driver: bridge
