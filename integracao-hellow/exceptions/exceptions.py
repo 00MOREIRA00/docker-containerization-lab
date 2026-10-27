@@ -1,31 +1,3 @@
-"""Exceções HTTP padronizadas da aplicação.
-
-Estas exceções representam erros esperados durante o processamento da API.
-Cada classe possui um status HTTP padrão e pode receber uma mensagem específica.
-
-Exceções 4xx — erro causado pela requisição ou pelo cliente:
-
-* ``BadRequestError`` (400): a requisição é inválida ou está malformada.
-* ``UnauthorizedError`` (401): o cliente não está autenticado.
-* ``ForbiddenError`` (403): o cliente está autenticado, mas não tem permissão.
-* ``NotFoundError`` (404): o recurso solicitado não existe.
-* ``MethodNotAllowedError`` (405): o método HTTP não é permitido na rota.
-* ``ConflictError`` (409): a operação entra em conflito com o estado atual.
-* ``PreconditionFailedError`` (412): uma condição necessária não foi atendida.
-* ``UnprocessableEntityError`` (422): os dados foram entendidos, mas são inválidos.
-* ``TooManyRequestsError`` (429): o cliente excedeu o limite de requisições.
-
-Exceções 5xx — falha no processamento pelo servidor ou por uma dependência:
-
-* ``InternalServerError`` (500): erro interno não especificado.
-* ``NotImplementedHTTPError`` (501): funcionalidade ainda não implementada.
-* ``BadGatewayError`` (502): resposta inválida recebida de outro serviço.
-* ``ServiceUnavailableError`` (503): serviço temporariamente indisponível.
-* ``GatewayTimeoutError`` (504): outro serviço não respondeu a tempo.
-
-Os handlers da aplicação convertem essas exceções em respostas JSON para o cliente.
-"""
-
 from fastapi import HTTPException, status
 
 
